@@ -9,7 +9,7 @@ type ContractURIUpdated @entity(immutable: true) {
 
 type ExtensionAdded @entity(immutable: true) {
   id: Bytes!
-  name: String! # string
+  name: Bytes! # string
   implementation: Bytes! # address
   extension_metadata_name: String! # string
   extension_metadata_metadataURI: String! # string
@@ -22,7 +22,7 @@ type ExtensionAdded @entity(immutable: true) {
 
 type ExtensionRemoved @entity(immutable: true) {
   id: Bytes!
-  name: String! # string
+  name: Bytes! # string
   extension_metadata_name: String! # string
   extension_metadata_metadataURI: String! # string
   extension_metadata_implementation: Bytes! # address
@@ -34,7 +34,7 @@ type ExtensionRemoved @entity(immutable: true) {
 
 type ExtensionReplaced @entity(immutable: true) {
   id: Bytes!
-  name: String! # string
+  name: Bytes! # string
   implementation: Bytes! # address
   extension_metadata_name: String! # string
   extension_metadata_metadataURI: String! # string
@@ -56,7 +56,7 @@ type FlatPlatformFeeUpdated @entity(immutable: true) {
 
 type FunctionDisabled @entity(immutable: true) {
   id: Bytes!
-  name: String! # string
+  name: Bytes! # string
   functionSelector: Bytes! # bytes4
   extMetadata_name: String! # string
   extMetadata_metadataURI: String! # string
@@ -68,7 +68,7 @@ type FunctionDisabled @entity(immutable: true) {
 
 type FunctionEnabled @entity(immutable: true) {
   id: Bytes!
-  name: String! # string
+  name: Bytes! # string
   functionSelector: Bytes! # bytes4
   extFunction_functionSelector: Bytes! # bytes4
   extFunction_functionSignature: String! # string
