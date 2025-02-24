@@ -31,6 +31,7 @@ import {
   RoyaltyEngineUpdated
 } from "../generated/schema"
 import { Bytes } from "@graphprotocol/graph-ts"
+import { DirectListingsLogic } from "../generated/templates"
 
 export function handleContractURIUpdated(event: ContractURIUpdatedEvent): void {
   let entity = new ContractURIUpdated(
@@ -65,6 +66,13 @@ export function handleExtensionAdded(event: ExtensionAddedEvent): void {
   entity.blockTimestamp = event.block.timestamp
   entity.transactionHash = event.transaction.hash
 
+  if(event.params.implementation.toHexString() == "0x3dd99A2Cb8d7e9B6F8f959F73Ed67Cc8e88742A3") {
+    DirectListingsLogic.create(event.params.implementation)
+  }
+
+  if(event.params.extension.metadata.name == "Direct Listings") {
+    DirectListingsLogic.create(event.params.implementation)
+  }
   entity.save()
 }
 

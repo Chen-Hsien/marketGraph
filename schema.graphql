@@ -143,3 +143,89 @@ type RoyaltyEngineUpdated @entity(immutable: true) {
   blockTimestamp: BigInt!
   transactionHash: Bytes!
 }
+type BuyerApprovedForListing @entity(immutable: true) {
+  id: Bytes!
+  listingId: BigInt! # uint256
+  buyer: Bytes! # address
+  approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CancelledListing @entity(immutable: true) {
+  id: Bytes!
+  listingCreator: Bytes! # address
+  listingId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type CurrencyApprovedForListing @entity(immutable: true) {
+  id: Bytes!
+  listingId: BigInt! # uint256
+  currency: Bytes! # address
+  pricePerToken: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewListing @entity(immutable: true) {
+  id: Bytes!
+  listingCreator: Bytes! # address
+  listingId: BigInt! # uint256
+  assetContract: Bytes! # address
+  listing_listingId: BigInt! # uint256
+  listing_tokenId: BigInt! # uint256
+  listing_quantity: BigInt! # uint256
+  listing_pricePerToken: BigInt! # uint256
+  listing_startTimestamp: BigInt! # uint128
+  listing_endTimestamp: BigInt! # uint128
+  listing_listingCreator: Bytes! # address
+  listing_assetContract: Bytes! # address
+  listing_currency: Bytes! # address
+  listing_tokenType: Int! # uint8
+  listing_status: Int! # uint8
+  listing_reserved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewSale @entity(immutable: true) {
+  id: Bytes!
+  listingCreator: Bytes! # address
+  listingId: BigInt! # uint256
+  assetContract: Bytes! # address
+  tokenId: BigInt! # uint256
+  buyer: Bytes! # address
+  quantityBought: BigInt! # uint256
+  totalPricePaid: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdatedListing @entity(immutable: true) {
+  id: Bytes!
+  listingCreator: Bytes! # address
+  listingId: BigInt! # uint256
+  assetContract: Bytes! # address
+  listing_listingId: BigInt! # uint256
+  listing_tokenId: BigInt! # uint256
+  listing_quantity: BigInt! # uint256
+  listing_pricePerToken: BigInt! # uint256
+  listing_startTimestamp: BigInt! # uint128
+  listing_endTimestamp: BigInt! # uint128
+  listing_listingCreator: Bytes! # address
+  listing_assetContract: Bytes! # address
+  listing_currency: Bytes! # address
+  listing_tokenType: Int! # uint8
+  listing_status: Int! # uint8
+  listing_reserved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
